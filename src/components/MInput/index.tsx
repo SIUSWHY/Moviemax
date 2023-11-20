@@ -1,24 +1,24 @@
 import {useState} from 'react';
 import {StyleSheet, TextInput, TouchableOpacity, View} from 'react-native';
-// import Icon from 'react-native-vector-icons/FontAwesome';
-import BColors from '../../utilities/colors';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import MColors from '../../utilities/colors';
 
-interface BInputType {
+interface MInputType {
   placeholder: string;
   isPassword?: boolean;
 }
 
-function BInput({placeholder, isPassword = false}: BInputType) {
+function MInput({placeholder, isPassword = false}: MInputType) {
   const [isShow, setIsShow] = useState(false);
 
   return (
     <View style={styles.searchSection}>
-      {/* <Icon
+      <Icon
         style={styles.searchIcon}
         name={isPassword ? 'lock' : 'envelope'}
         size={17}
         color="#9e9e9e"
-      /> */}
+      />
       {isPassword ? (
         <TextInput
           style={styles.input}
@@ -35,12 +35,12 @@ function BInput({placeholder, isPassword = false}: BInputType) {
       )}
       {isPassword && (
         <TouchableOpacity onPress={() => setIsShow(!isShow)}>
-          {/* <Icon
+          <Icon
             style={styles.searchIcon}
             name={isShow ? 'eye' : 'eye-slash'}
             size={20}
             color="#9e9e9e"
-          /> */}
+          />
         </TouchableOpacity>
       )}
     </View>
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: BColors.grey,
+    backgroundColor: MColors.grey,
     borderRadius: 10,
   },
   searchIcon: {
@@ -65,9 +65,9 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     borderRadius: 10,
     paddingLeft: 0,
-    backgroundColor: BColors.grey,
-    color: BColors.primary,
+    backgroundColor: MColors.grey,
+    color: MColors.primary,
   },
 });
 
-export default BInput;
+export default MInput;

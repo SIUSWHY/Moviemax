@@ -1,62 +1,62 @@
-import { StyleSheet, Text, View } from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import Layout from '../../components/Layout';
-import BInput from '../../components/BInput';
+import BInput from '../../components/MInput';
 import BCheckbox from '../../components/BCheckbox';
-import { useState } from 'react';
-import BButton from '../../components/Button';
-import BSeparator from '../../components/BSeparator';
-import BSocialLogin from '../../components/BSocialLogin';
+import {useState} from 'react';
+import MButton from '../../components/MButton';
+import BSeparator from '../../components/MSeparator';
+import MSocialLogin from '../../components/MSocialLogin';
 
 function SignUp() {
-    const [isRemember, setRemember] = useState(false);
+  const [isRemember, setRemember] = useState(false);
 
-    return (
-        <Layout>
-            <Text style={styles.title}>Create your Account</Text>
-            <View style={styles.inputWrapper}>
-                <BInput placeholder="Email"></BInput>
-                <BInput placeholder="Password" isPassword={true}></BInput>
-            </View>
-            <View>
-                {/* <BCheckbox
+  return (
+    <Layout>
+      <Text style={styles.title}>Create your Account</Text>
+      <View style={styles.inputWrapper}>
+        <BInput placeholder="Email" />
+        <BInput placeholder="Password" isPassword={true} />
+      </View>
+      <View>
+        {/* <BCheckbox
                     isChecked={isRemember}
                     onPress={() => setRemember(!isRemember)}
                     title="Remember me"
                 ></BCheckbox> */}
-            </View>
-            <BButton title="Sign Up" callback={() => console.log('sinUp')}></BButton>
-            <BSeparator text="or continue with"></BSeparator>
-            <View style={styles.socialWrapper}>
-                <BSocialLogin isBig={false} iconName="facebook"></BSocialLogin>
-                <BSocialLogin isBig={false} iconName="google"></BSocialLogin>
-                <BSocialLogin isBig={false} iconName="apple"></BSocialLogin>
-            </View>
-            <Text style={styles.signUp}>
-                Already have an account?
-                <Text> Sign In</Text>
-            </Text>
-        </Layout>
-    );
+      </View>
+      <MButton title="Sign Up" callback={() => console.log('sinUp')} />
+      <BSeparator text="or continue with" />
+      <View style={styles.socialWrapper}>
+        <MSocialLogin isBig={false} iconName="facebook" />
+        <MSocialLogin isBig={false} iconName="google" />
+        <MSocialLogin isBig={false} iconName="apple" />
+      </View>
+      <Text style={styles.signUp}>
+        Already have an account?
+        <Text> Sign In</Text>
+      </Text>
+    </Layout>
+  );
 }
 
 const styles = StyleSheet.create({
-    signUp: {
-        marginTop: 15,
-        textAlign: 'center',
-    },
-    socialWrapper: {
-        display: 'flex',
-        flexDirection: 'row',
-        gap: 20,
-        justifyContent: 'center',
-    },
-    title: {
-        fontSize: 50,
-        fontFamily: 'Jost-Bold',
-    },
-    inputWrapper: {
-        rowGap: 20,
-    },
+  signUp: {
+    marginTop: 15,
+    textAlign: 'center',
+  },
+  socialWrapper: {
+    display: 'flex',
+    flexDirection: 'row',
+    gap: 20,
+    justifyContent: 'center',
+  },
+  title: {
+    fontSize: 50,
+    fontFamily: 'Jost-Bold',
+  },
+  inputWrapper: {
+    rowGap: 20,
+  },
 });
 
 export default SignUp;

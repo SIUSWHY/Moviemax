@@ -1,17 +1,17 @@
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
-import BColors from '../../utilities/colors';
-// import Icon from 'react-native-vector-icons/FontAwesome';
+import MColors from '../../utilities/colors';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-interface BSocialLoginType {
+interface MSocialLoginType {
   title?: string;
   iconName: string;
   isBig?: boolean;
 }
 
-function BSocialLogin({title, iconName, isBig = true}: BSocialLoginType) {
+function MSocialLogin({title, iconName, isBig = true}: MSocialLoginType) {
   return (
     <TouchableOpacity style={styles.container}>
-      {/* <Icon style={styles.icon} name={iconName} size={17} color="#9e9e9e" /> */}
+      <Icon style={styles.icon} name={iconName} size={17} color="#9e9e9e" />
       {isBig && <Text style={styles.text}>Continue with {title}</Text>}
     </TouchableOpacity>
   );
@@ -20,10 +20,10 @@ function BSocialLogin({title, iconName, isBig = true}: BSocialLoginType) {
 const styles = StyleSheet.create({
   container: {
     height: 50,
-    backgroundColor: BColors.grey,
+    backgroundColor: MColors.grey,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: BColors.grey_10,
+    borderColor: MColors.grey_10,
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'row',
@@ -39,4 +39,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BSocialLogin;
+export default MSocialLogin;

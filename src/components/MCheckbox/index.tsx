@@ -1,20 +1,20 @@
 import {Pressable, StyleSheet, Text, View} from 'react-native';
-// import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import React from 'react';
 
-interface BCheckBoxType {
+interface MCheckBoxType {
   onPress: any;
   title: string;
   isChecked: boolean;
 }
 
-function BCheckbox({onPress, title, isChecked}: BCheckBoxType) {
+function MCheckbox({onPress, title, isChecked}: MCheckBoxType) {
   const iconName = isChecked ? 'square-check' : 'square-check';
 
   return (
     <View style={styles.container}>
       <Pressable onPress={onPress}>
-        {/* <Icon name={iconName} size={24} color="#000" /> */}
+        <Icon name={iconName} size={24} color="#000" />
       </Pressable>
       <Text style={styles.title}>{title}</Text>
     </View>
@@ -37,4 +37,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BCheckbox;
+export default MCheckbox;
