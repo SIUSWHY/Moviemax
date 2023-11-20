@@ -1,20 +1,23 @@
 import {Pressable, StyleSheet, Text, View} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import React from 'react';
+import MColors from '../../utilities/colors';
 
 interface MCheckBoxType {
-  onPress: any;
+  onPress?: any;
   title: string;
   isChecked: boolean;
 }
 
 function MCheckbox({onPress, title, isChecked}: MCheckBoxType) {
-  const iconName = isChecked ? 'square-check' : 'square-check';
-
   return (
     <View style={styles.container}>
-      <Pressable onPress={onPress}>
-        <Icon name={iconName} size={24} color="#000" />
+      <Pressable style={styles.checkbox} onPress={onPress}>
+        {isChecked ? (
+          <Icon name="check" size={15} color={MColors.primary} />
+        ) : (
+          <View />
+        )}
       </Pressable>
       <Text style={styles.title}>{title}</Text>
     </View>
@@ -29,6 +32,13 @@ const styles = StyleSheet.create({
     width: 150,
     marginTop: 5,
     marginHorizontal: 5,
+  },
+  checkbox: {
+    height: 20,
+    width: 20,
+    borderWidth: 2,
+    borderColor: MColors.primary,
+    borderRadius: 5,
   },
   title: {
     fontSize: 16,

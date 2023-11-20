@@ -10,14 +10,19 @@ interface MInputType {
 
 function MInput({placeholder, isPassword = false}: MInputType) {
   const [isShow, setIsShow] = useState(false);
+  const [isFocus, setIsFocus] = useState(false);
 
   return (
-    <View style={styles.searchSection}>
+    <View
+      style={[
+        styles.searchSection,
+        {borderColor: isFocus ? MColors.primary : MColors.grey},
+      ]}>
       <Icon
         style={styles.searchIcon}
         name={isPassword ? 'lock' : 'envelope'}
         size={17}
-        color="#9e9e9e"
+        color={isFocus ? MColors.primary : MColors.grey_30}
       />
       {isPassword ? (
         <TextInput
@@ -25,12 +30,14 @@ function MInput({placeholder, isPassword = false}: MInputType) {
           placeholder={placeholder}
           secureTextEntry={isShow ? false : true}
           underlineColorAndroid="transparent"
+          onFocus={() => setIsFocus(true)}
         />
       ) : (
         <TextInput
           style={styles.input}
           placeholder={placeholder}
           underlineColorAndroid="transparent"
+          onFocus={() => setIsFocus(true)}
         />
       )}
       {isPassword && (
@@ -39,7 +46,7 @@ function MInput({placeholder, isPassword = false}: MInputType) {
             style={styles.searchIcon}
             name={isShow ? 'eye' : 'eye-slash'}
             size={20}
-            color="#9e9e9e"
+            color={isFocus ? MColors.primary : MColors.grey_30}
           />
         </TouchableOpacity>
       )}
@@ -53,6 +60,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: MColors.grey,
+    borderWidth: 1,
     borderRadius: 10,
   },
   searchIcon: {
@@ -66,6 +74,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingLeft: 0,
     backgroundColor: MColors.grey,
+    borderColor: MColors.primary,
     color: MColors.primary,
   },
 });

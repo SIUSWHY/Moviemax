@@ -1,8 +1,9 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import MSocialLogin from '../../components/MSocialLogin';
 import MButton from '../../components/MButton';
 import Layout from '../../components/Layout';
 import MSeparator from '../../components/MSeparator';
+import MColors from '../../utilities/colors';
 
 function LetsIn({navigation}) {
   return (
@@ -16,11 +17,13 @@ function LetsIn({navigation}) {
       <MSeparator text="or" />
       <MButton
         title="Sign in with password"
-        callback={() => navigation.navigate('SignUp')}
+        callback={() => navigation.navigate('SignIn')}
       />
       <Text style={styles.signUp}>
         Don't have an account?
-        <Text> Sign Up</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
+          <Text style={styles.text}> Sign Up</Text>
+        </TouchableOpacity>
       </Text>
     </Layout>
   );
@@ -30,6 +33,9 @@ const styles = StyleSheet.create({
   signUp: {
     textAlign: 'center',
     paddingVertical: 10,
+  },
+  text: {
+    color: MColors.primary,
   },
   btnContainer: {
     marginVertical: 20,

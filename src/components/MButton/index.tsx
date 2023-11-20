@@ -2,7 +2,7 @@ import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import MColors from '../../utilities/colors';
 
 interface MButtonType {
-  callback: any;
+  callback?: any;
   title: string;
 }
 

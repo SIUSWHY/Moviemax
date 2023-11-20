@@ -1,31 +1,31 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Layout from '../../components/Layout';
 import BInput from '../../components/MInput';
-import MCheckbox from '../../components/MCheckbox';
-import {useState} from 'react';
 import MButton from '../../components/MButton';
 import BSeparator from '../../components/MSeparator';
 import MSocialLogin from '../../components/MSocialLogin';
+import MCheckbox from '../../components/MCheckbox';
 import MColors from '../../utilities/colors';
+import {useState} from 'react';
 
-function SignUp({navigation}) {
-  const [isRemember, setRemember] = useState(false);
+function SignIn({navigation}) {
+  const [isChecked, setIsChecked] = useState(false);
 
   return (
     <Layout>
-      <Text style={styles.title}>Create your Account</Text>
+      <Text style={styles.title}>Login to Your Account</Text>
       <View style={styles.inputWrapper}>
         <BInput placeholder="Email" />
         <BInput placeholder="Password" isPassword={true} />
       </View>
       <View style={styles.checkboxContainer}>
         <MCheckbox
-          isChecked={isRemember}
-          onPress={() => setRemember(!isRemember)}
+          isChecked={isChecked}
+          onPress={() => setIsChecked(!isChecked)}
           title="Remember me"
         />
       </View>
-      <MButton title="Sign Up" callback={() => console.log('sinUp')} />
+      <MButton title="Sign In" callback={() => console.log('sinIn')} />
       <BSeparator text="or continue with" />
       <View style={styles.socialWrapper}>
         <MSocialLogin isBig={false} iconName="facebook" />
@@ -34,8 +34,8 @@ function SignUp({navigation}) {
       </View>
       <Text style={styles.signUp}>
         Already have an account?
-        <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
-          <Text style={styles.text}> Sign In</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
+          <Text style={styles.text}> Sign Up</Text>
         </TouchableOpacity>
       </Text>
     </Layout>
@@ -70,4 +70,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SignUp;
+export default SignIn;
