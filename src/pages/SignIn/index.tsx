@@ -25,7 +25,10 @@ function SignIn({navigation}) {
           title="Remember me"
         />
       </View>
-      <MButton title="Sign In" callback={() => console.log('sinIn')} />
+      <MButton
+        title="Sign In"
+        callback={() => navigation.navigate('Interest')}
+      />
       <BSeparator text="or continue with" />
       <View style={styles.socialWrapper}>
         <MSocialLogin isBig={false} iconName="facebook" />

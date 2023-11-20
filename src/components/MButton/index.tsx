@@ -1,14 +1,27 @@
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {StyleProp, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import MColors from '../../utilities/colors';
 
 interface MButtonType {
   callback?: any;
   title: string;
+  fill?: boolean;
+  style?: Record<string, any>;
 }
 
-function MButton({callback, title}: MButtonType): JSX.Element {
+function MButton({
+  callback,
+  title,
+  fill = true,
+  style,
+}: MButtonType): JSX.Element {
   return (
-    <TouchableOpacity style={styles.container} onPress={callback}>
+    <TouchableOpacity
+      style={[
+        styles.container,
+        {backgroundColor: fill ? MColors.primary : MColors.grey},
+        style,
+      ]}
+      onPress={callback}>
       <Text style={styles.text}>{title}</Text>
     </TouchableOpacity>
   );
@@ -17,7 +30,6 @@ function MButton({callback, title}: MButtonType): JSX.Element {
 const styles = StyleSheet.create({
   container: {
     height: 50,
-    backgroundColor: MColors.primary,
     borderRadius: 50,
     display: 'flex',
     justifyContent: 'center',
@@ -26,6 +38,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 20,
     fontFamily: 'Jost-Bold',
+    marginVertical: 5,
+    marginHorizontal: 10,
   },
 });
 

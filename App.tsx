@@ -12,6 +12,7 @@ import Onboarding from './src/pages/Onboarding';
 import SignUp from './src/pages/SignUp';
 import SignIn from './src/pages/SignIn';
 import LetsIn from './src/pages/LetsIn';
+import Interest from './src/pages/AccountSetup/Interest';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +26,7 @@ function App(): JSX.Element {
         <Stack.Screen name="LetsIn" component={LetsIn} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="SignIn" component={SignIn} />
+        <Stack.Screen name="Interest" component={Interest} />
       </Stack.Navigator>
     </NavigationContainer>
   );
